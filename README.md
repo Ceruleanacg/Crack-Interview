@@ -17,6 +17,7 @@ Why should we do this again and again?
 
 - [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/description/)
 - [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description/)
+- [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/description/)
 
 ### Trees and Graphs
 
