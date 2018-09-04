@@ -25,7 +25,7 @@ Why should we do this again and again?
     - 思路：通过Python的逆置语法糖逆置
 - [151. Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/description/)
     - 描述：给定一个字符串，将字符串内的每个字符逆置
-    - 考点：字典树
+    - 考点：
     - 思路：
 
 ### Linked List
@@ -50,18 +50,39 @@ Why should we do this again and again?
 ### Trees and Graphs
 
 - [98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/description/)
+    - 描述：验证一棵树是否是二叉查找树
+    - 考点：二叉查找树的性质（中序遍历有序）
+    - 思路：中序遍历，检查中序遍历结果是否有序
 - [94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
+    - 描述：中序遍历二叉树
+    - 考点：二叉树中序遍历，递归，栈
+    - 思路：
+        - 递归：先递归左孩子，然后添加根节点值，然后递归右孩子
+        - 迭代：首先初始化（根节点，未访问）元组并入栈，然后循环，将栈顶出栈，判断节点是否为真，然后判断节点是否已经访问，如果已经访问，则向结果数组添加结果，如果未访问，则依次入栈右、根、左节点，并标记他们的访问情况为否、是、否
+        
 - [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/)
+    - 描述：二叉树层序遍历
+    - 考点：
+    - 思路：维护一个数组，该数组的元素是当前层所有的结点，然后循环，将数组所有元素的值存储，然后遍历该数组，将所有节点的孩子节点作为新层数组
 - [103. Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/)
 
 ### Backtracking
 
 - [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
+    - 描述：2-9数字中每个数字对应了电话号码上的几个字母，输入一串2-9的数字，输出数字对应的字母的所有排列组合
+    - 考点：回溯、深度优先遍历、递归
+    - 思路：注意DFS函数参数设计和递归停止条件，参数应该包含（当前当前索引、数字、当前模式、结果），如果索引等于长度，则应该停止，向结果添加模式，否则，遍历当前数字对应的字母，然后依次DFS，此时索引自增，模式自增当前字母
 
 ### Sorting and Searching
 
 - [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
+    - 描述：就地从排序数组里移除冗余数字
+    - 考点：
+    - 思路：定义一个"有序尾索引"，该索引永远为有序数组无冗余的"前端"，然后遍历数组，如果数组的"有序尾索引"的值不等于当前值，则有序尾索引自增，然后更新有序尾索引对应的值为当前值，最后返回有序尾索引自增
 - [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/description/)
+    - 描述：就地合并两个排序后的数组（第一个数组足够长）
+    - 考点：分治
+    - 思路：从后遍历两个数组，根据当前两索引对应的值的大小，将较大的索引对应的值放进合并索引（m + n - 1)位置中，然后对应索引自减，最后如果第二个数组索引仍然不为，0则继续填充合并索引位置，两索引自减少
 
 ### Dynamic Programming
 
