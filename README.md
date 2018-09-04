@@ -63,8 +63,11 @@ Why should we do this again and again?
 - [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/)
     - 描述：二叉树层序遍历
     - 考点：
-    - 思路：维护一个数组，该数组的元素是当前层所有的结点，然后循环（根据层数组是否为空），将数组所有元素的值存储，然后遍历该数组，将所有节点的孩子节点作为新层数组
+    - 思路：维护一个层节点数组，概数组存储当前层所有节点，然后循环（如果层节点数组不为空），遍历层节点所有节点的值，然后将层节点所有非空孩子节点作为新层数组
 - [103. Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/)
+    - 描述：Z字形输出二叉树节点的值
+    - 考点：
+    - 思路：维护一个层节点数组，概数组存储当前层所有节点，然后循环（如果层节点数组不为空），遍历层节点所有节点的值，单次不反转，双次反转，然后将层节点所有非空孩子节点作为新层数组
 
 ### Backtracking
 
