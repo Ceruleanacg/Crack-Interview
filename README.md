@@ -46,6 +46,10 @@ Why should we do this again and again?
     - 描述：将两条已经排序链表合并，已知第一条链表足够长
     - 考点：链表，分治
     - 思路：初始化头结点，定义当前结点为头结点，遍历链表，将第一条与第二条结点中当前较小的结点作为当前节点的后继，然后更新该条当前节点为其后继，最后将多余的结点作为当前节点的后继，然后返回头结点
+- [445. Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/description/)
+    - 描述：两链表从头到位表示数字的高位到地位，不逆序，将链表相加
+    - 考点：链表
+    - 思路：依次遍历两链表，将链表每个节点的值加和，然后求和重新构造链表
 
 ### Trees and Graphs
 
