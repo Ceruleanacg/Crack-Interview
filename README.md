@@ -27,6 +27,10 @@ Why should we do this again and again?
     - 描述：给定一个字符串，将字符串内的每个字符逆置
     - 考点：
     - 思路：
+- [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/description/)
+    - 描述：括号匹配：{[()]}
+    - 考点：栈
+    - 思路：遇到左括号入栈，遇到右括号出栈，出栈左括号和右括号如果对不上，则非法，否则合法，最后检查栈是否为空，为空则合法
 
 ### Linked List
 
@@ -71,6 +75,8 @@ Why should we do this again and again?
     - 描述：Z字形输出二叉树节点的值
     - 考点：
     - 思路：维护一个层节点数组，概数组存储当前层所有节点，然后循环（如果层节点数组不为空），遍历层节点所有节点的值，单次不反转，双次反转，然后将层节点所有非空孩子节点作为新层数组
+- [116. Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/)
+    
 
 ### Backtracking
 
