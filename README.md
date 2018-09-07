@@ -31,6 +31,8 @@ Why should we do this again and again?
     - 描述：括号匹配：{[()]}
     - 考点：栈
     - 思路：遇到左括号入栈，遇到右括号出栈，出栈左括号和右括号如果对不上，则非法，否则合法，最后检查栈是否为空，为空则合法
+- [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/description/)
+    - 描述：最长回文子串
 
 ### Linked List
 
@@ -69,14 +71,16 @@ Why should we do this again and again?
         - 迭代：首先初始化（根节点，未访问）元组并入栈，然后循环，将栈顶出栈，判断节点是否为真，然后判断节点是否已经访问，如果已经访问，则向结果数组添加结果，如果未访问，则依次入栈右、根、左节点，并标记他们的访问情况为否、是、否
 - [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/)
     - 描述：二叉树层序遍历
-    - 考点：
-    - 思路：维护一个层节点数组，概数组存储当前层所有节点，然后循环（如果层节点数组不为空），遍历层节点所有节点的值，然后将层节点所有非空孩子节点作为新层数组
+    - 考点：二叉树层序遍历
+    - 思路：维护一个层节点数组，数组存储当前层所有节点，然后循环（如果层节点数组不为空），遍历层节点所有节点的值，然后将层节点所有非空孩子节点作为新层数组
 - [103. Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/)
     - 描述：Z字形输出二叉树节点的值
-    - 考点：
-    - 思路：维护一个层节点数组，概数组存储当前层所有节点，然后循环（如果层节点数组不为空），遍历层节点所有节点的值，单次不反转，双次反转，然后将层节点所有非空孩子节点作为新层数组
+    - 考点：二叉树层序遍历
+    - 思路：维护一个层节点数组，数组存储当前层所有节点，然后循环（如果层节点数组不为空），遍历层节点所有节点的值，单次不反转，双次反转，然后将层节点所有非空孩子节点作为新层数组
 - [116. Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/)
-    
+    - 描述：将一个满二叉树的每一层变成一个链表
+    - 考点：二叉树层序遍历
+    - 思路：维护一个层节点数组，数组存储当前层所有节点，然后循环（如果层节点数组不为空），遍历层节点所有值，然后串成链表
 
 ### Backtracking
 
