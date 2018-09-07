@@ -33,6 +33,8 @@ Why should we do this again and again?
     - 思路：遇到左括号入栈，遇到右括号出栈，出栈左括号和右括号如果对不上，则非法，否则合法，最后检查栈是否为空，为空则合法
 - [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/description/)
     - 描述：最长回文子串
+    - 考点：动态规划
+    - 思路：状态转移方程，理清情况，如果左边界等于右边界，则是回文，如果右边界减去左边界等于1，且对应的值相等，则是回文，如果右边界减去左边界大于1，如果对应的值相等，且右边界减去1和左边界加1是回文，则是回文
 
 ### Linked List
 
