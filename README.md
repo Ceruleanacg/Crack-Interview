@@ -83,6 +83,10 @@ Why should we do this again and again?
     - 描述：将一个满二叉树的每一层变成一个链表
     - 考点：二叉树层序遍历
     - 思路：维护一个层节点数组，数组存储当前层所有节点，然后循环（如果层节点数组不为空），遍历层节点所有值，然后串成链表
+- [117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/)
+    - 描述：将一个二叉树的每一层变成一个链表
+    - 考点：二叉树层序遍历
+    - 思路：同116思路
 
 ### Backtracking
 
