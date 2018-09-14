@@ -139,3 +139,6 @@ Why should we do this again and again?
     - 思路：初始化最大收益和最小价格为0，按顺序遍历价格，根据当前价格更新最小价格，根据当前最小价格和当前价格计算收益，根据最大收益和当前收益更新最大收益
 
 - [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
+    - 描述：输入一个整型数组，输出最大子串和
+    - 考点：动态规划
+    - 思路：`dp[index] = max(num, num + dp[index - 1])`其中`dp[index]`为第index个下标的最大子数组和
