@@ -36,10 +36,14 @@ Why should we do this again and again?
     - 考点：动态规划
     - 思路：状态转移方程，理清情况，如果左边界等于右边界，则是回文，如果右边界减去左边界等于1，且对应的值相等，则是回文，如果右边界减去左边界大于1，如果对应的值相等，且右边界减去1和左边界加1是回文，则是回文
 - [49. Group Anagrams](https://leetcode.com/explore/interview/card/microsoft/30/array-and-strings/200/)
-    - 描述：
+    - 描述：输入一个字符串组成的数组，将字符构成相同的字符串分类后输出
+    - 考点：字符串、哈希表
+    - 思路：对每个字符串数组排序后建立并维护哈希表
     
 - [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/)
-    - 描述：
+    - 描述：接雨水，输入为x轴上每一点的墙高度，问能接多少雨水
+    - 考点：
+    - 思路：一次遍历找到最高墙位置，然后从左和从右向最高墙位置遍历，维护一个临时峰值高度，如果该点的高度小于临时峰值高度，则该点能存的水为临时峰值减去该点高度，否则更新临时峰值为该点高度
 
 ### Linked List
 
@@ -127,6 +131,11 @@ Why should we do this again and again?
 
 ### Dynamic Programming
 
-##### B-Marked
+##### A-Marked
+
+- [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
+    - 描述：输入一个数组代表一个时间段的股票价格，按照时间顺序，找到最佳买入和卖出价格，计算最大收益，如果没有最佳择时，收益为0
+    - 考点：
+    - 思路：初始化最大收益和最小价格为0，按顺序遍历价格，根据当前价格更新最小价格，根据当前最小价格和当前价格计算收益，根据最大收益和当前收益更新最大收益
 
 - [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
