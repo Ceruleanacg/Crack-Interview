@@ -35,6 +35,11 @@ Why should we do this again and again?
     - 描述：最长回文子串
     - 考点：动态规划
     - 思路：状态转移方程，理清情况，如果左边界等于右边界，则是回文，如果右边界减去左边界等于1，且对应的值相等，则是回文，如果右边界减去左边界大于1，如果对应的值相等，且右边界减去1和左边界加1是回文，则是回文
+- [49. Group Anagrams](https://leetcode.com/explore/interview/card/microsoft/30/array-and-strings/200/)
+    - 描述：
+    
+- [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/)
+    - 描述：
 
 ### Linked List
 
@@ -114,10 +119,11 @@ Why should we do this again and again?
     - 考点：双指针
     - 思路：维护三个指针，分别是左，当前，右指针，以当前指针小于等于右指针为条件进入循环，如果当前数字等于2，则将当前数字与右指针交换，然后右指针左移，当前与左指针不动，如果当前数字等于1，左右指针均不动，当前指针自增，如果当前数字等于0，交换当前与左指针的值，然后当前和左指针自增。
 - [153. Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/)
-    - 描述：有序数组在某一位被完全反转，例如[0, 1, 2, 3, 4] -> [3, 4, 0, 1, 2]，找出最小元素
+    - 描述：有序数组在某一位被完全反转，例如[0, 1, 2, 3, 4] -> [3, 4, 0, 1, 2]，找出最小元素，无重复元素
     - 考点：二分查找
-    - 思路：取左中右索引，如果中值比右值小，则将右索引更新为中索引，如果中值等于或大于右值，则数组在此被反转，将左索引更新为中索引加1
-    
+    - 思路：取左中右索引，如果中值比右值小，则将右索引更新为中索引，如果中值大于右值，则数组在此被反转，将左索引更新为中索引加1
+- [154. Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/description/)
+    - 描述：有序数组在某一位被完全反转，例如[0, 2, 2, 3, 4] -> [3, 4, 0, 2, 2]，找出最小元素，可能有重复元素
 
 ### Dynamic Programming
 
