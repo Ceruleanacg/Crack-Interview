@@ -100,6 +100,8 @@ Why should we do this again and again?
     - 描述：求二叉查找树两节点的公共祖先
     - 考点：递归
     - 思路：如果根节点的值介于两节点的值间，则返回，否则，如果两节点的值都小于根节点，那么递归本函数，将根节点换为根节点的左孩子，否则右递归
+- [236. Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/)
+    - 描述：求二叉树两节点的公共祖先
 
 ### Backtracking
 

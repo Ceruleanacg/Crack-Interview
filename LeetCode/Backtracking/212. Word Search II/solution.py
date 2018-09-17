@@ -1,6 +1,3 @@
-# https://leetcode.com/problems/word-search-ii/description/
-
-
 class Solution:
     def findWords(self, board, words):
         """

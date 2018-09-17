@@ -1,6 +1,3 @@
-# https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
-
-
 class Solution:
 
     digit_char_map = {
