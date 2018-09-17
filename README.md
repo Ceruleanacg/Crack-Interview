@@ -59,15 +59,19 @@ Why should we do this again and again?
     - 描述：两链表从头到尾表示数字的低位到高位，将两链表相加
     - 考点：链表
     - 思路：遍历链表相加，注意进位，本次遍历注意结束时不需要创建新节点，再次遍历（如必要），将剩余链表的高位依次添加，注意进位，最后根据进位标志判断是否需要创建新节点
-- [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/description/)
-    - 描述：将两条已经排序链表合并，已知第一条链表足够长
-    - 考点：链表，分治
-    - 思路：初始化头结点，定义当前结点为头结点，遍历链表，将第一条与第二条结点中当前较小的结点作为当前节点的后继，然后更新该条当前节点为其后继，最后将多余的结点作为当前节点的后继，然后返回头结点
 - [445. Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/description/)
     - 描述：两链表从头到位表示数字的高位到地位，不逆序，将链表相加
     - 考点：链表
     - 思路：依次遍历两链表，将链表每个节点的值加和，然后求和重新构造链表
-
+- [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/description/)
+    - 描述：将两条已经排序链表合并，已知第一条链表足够长
+    - 考点：链表
+    - 思路：初始化头结点，定义当前结点为头结点，遍历链表，将第一条与第二条结点中当前较小的结点作为当前节点的后继，然后更新该条当前节点为其后继，最后将多余的结点作为当前节点的后继，然后返回头结点
+- [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/description/)
+    - 描述：合并K个有序链表
+    - 考点：链表
+    - 思路：同上
+    
 ### Trees and Graphs
 
 - [98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/description/)
