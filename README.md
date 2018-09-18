@@ -139,6 +139,10 @@ Why should we do this again and again?
     - 思路：取左中右索引，如果中值比右值小，则将右索引更新为中索引，如果中值大于右值，则数组在此被反转，将左索引更新为中索引加1
 - [154. Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/description/)
     - 描述：有序数组在某一位被完全反转，例如[0, 2, 2, 3, 4] -> [3, 4, 0, 2, 2]，找出最小元素，可能有重复元素
+- [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/description/)
+    - 描述：有序数组以某一个元素为枢轴进行旋转，例如[0, 1, 2, 4, 5, 6, 7] -> [4, 5, 6, 7 ,0, 1, 2]，在该数组中寻找一个目标数字，如果存在则返回下标，否则返回-1
+    - 考点：二分查找
+    - 思路：找到枢轴，然后比较目标数和枢轴的大小，如果目标数大于枢轴，则不存在。如果目标数小于枢轴且大于等于首个元素，则在此区间二分查找，否则在枢轴后至末尾二分查找
 
 ### Dynamic Programming
 
