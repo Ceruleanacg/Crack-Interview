@@ -47,6 +47,8 @@ Why should we do this again and again?
 
 ### Linked List
 
+##### A-Marked
+
 - [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/description/)
     - 描述：给定一个链表，将之就地逆置
     - 考点：链表
@@ -73,6 +75,8 @@ Why should we do this again and again?
     - 思路：同上
     
 ### Trees and Graphs
+
+##### A-Marked
 
 - [98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/description/)
     - 描述：验证一棵树是否是二叉查找树
@@ -113,8 +117,16 @@ Why should we do this again and again?
     - 考点：递归，二叉树先根和中根遍历的性质
     - 思路：递归，先根遍历结果中，每一个数值都代表一颗子树的根节点，而每一个先根遍历的数值在中根遍历的结果中，其左边所有数值是左子树，右边所有数值是右子树，通过这个性质，用递归求解问题，即如果中根遍历结果不为空，则先根结果出队列，并计算先根结果在中根遍历结果中的索引，以先根结果为根节点，以先根索引为界，递归恢复左右子树
 
+##### B-Marked
+
+- [257. Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/description/)
+    - 描述：给定一颗二叉树，输出根节点到叶子节点的路径，以字符串表示，例如["1->2->5", "1->3"]
+    - 考点：递归，二叉树的先根遍历
+    - 思路：递归先根遍历二叉树，遇到空节点返回，如果某一节点左右孩子都为空，则序列化一次
 
 ### Backtracking
+
+##### A-Marked
 
 - [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
     - 描述：2-9数字中每个数字对应了电话号码上的几个字母，输入一串2-9的数字，输出数字对应的字母的所有排列组合
@@ -122,6 +134,8 @@ Why should we do this again and again?
     - 思路：注意DFS函数参数设计和递归停止条件，参数应该包含（当前当前索引、数字、当前模式、结果），如果索引等于长度，则应该停止，向结果添加模式，否则，遍历当前数字对应的字母，然后依次DFS，此时索引自增，模式自增当前字母
 
 ### Sorting and Searching
+
+##### A-Marked
 
 - [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
     - 描述：就地从排序数组里移除冗余数字
@@ -167,4 +181,3 @@ Why should we do this again and again?
     - 考点：动态规划
     - 思路：`dp[index] = max(num, num + dp[index - 1])`其中`dp[index]`为第index个下标的最大子数组和
 - [300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/description/)
-    - 
