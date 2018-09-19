@@ -181,3 +181,13 @@ Why should we do this again and again?
     - 考点：动态规划
     - 思路：`dp[index] = max(num, num + dp[index - 1])`其中`dp[index]`为第index个下标的最大子数组和
 - [300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/description/)
+    - 描述：
+    - 考点：
+    - 思路：
+
+##### B-Marked
+
+- [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/description/)
+    - 描述：给定一个n层楼梯，n是正数，可以一次上1阶，也可以一次上2阶，输出有多少种上法
+    - 考点：动态规划
+    - 思路：`dp[i] = dp[i - 1] + dp[i - 2]`
