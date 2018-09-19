@@ -146,9 +146,13 @@ Why should we do this again and again?
     - 考点：二分查找
     - 思路：找到枢轴，然后比较目标数和枢轴的大小，如果目标数大于枢轴，则不存在。如果目标数小于枢轴且大于等于首个元素，则在此区间二分查找，否则在枢轴后至末尾二分查找
 - [74. Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/description/)
-    - 描述：在一个有序的二维数组里查找某个目标数，如存在则返回True，否则返回False
+    - 描述：在一个二维数组里查找某个目标数，这个二维数组是按下标严格递增的，如存在则返回True，否则返回False
     - 考点：二分查找
     - 思路：按列遍历二维数组的首个元素，找到临界值行，在临界值行的上一行，进行二分查找
+- [240. Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/description/)
+    - 描述：在一个二维数组里查找某个目标数，这个二维数组是的每一个行是有序的，每一列是有序的，如果存在返回True，否则返回False
+    - 考点：二分查找
+    - 思路：按列遍历二维数组的首个元素，找到临界值行，遍历0行至临界行进行二分查找
 
 ### Dynamic Programming
 
