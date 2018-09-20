@@ -22,10 +22,13 @@ class Solution:
         for i in range(1, len(nums)):
             dp[i] = max(local_max[i - 1] * nums[i],
                         local_min[i - 1] * nums[i],
-                        dp[i - 1],
                         nums[i])
-            local_max[i] = max(local_max[i - 1] * nums[i], nums[i])
-            local_min[i] = min(local_min[i - 1] * nums[i], nums[i])
+            local_max[i] = max(local_max[i - 1] * nums[i],
+                               local_min[i - 1] * nums[i],
+                               nums[i])
+            local_min[i] = min(local_min[i - 1] * nums[i],
+                               local_max[i - 1] * nums[i],
+                               nums[i])
 
         return max(dp)
 
