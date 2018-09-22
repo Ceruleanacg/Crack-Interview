@@ -116,7 +116,9 @@ Why should we do this again and again?
     - 描述：已知某二叉树的先根和中根遍历结果，恢复二叉树
     - 考点：递归，二叉树先根和中根遍历的性质
     - 思路：递归，先根遍历结果中，每一个数值都代表一颗子树的根节点，而每一个先根遍历的数值在中根遍历的结果中，其左边所有数值是左子树，右边所有数值是右子树，通过这个性质，用递归求解问题，即如果中根遍历结果不为空，则先根结果出队列，并计算先根结果在中根遍历结果中的索引，以先根结果为根节点，以先根索引为界，递归恢复左右子树
-
+- [200. Number of Islands](https://leetcode.com/problems/number-of-islands/description/)
+    
+    
 ##### B-Marked
 
 - [257. Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/description/)
@@ -196,3 +198,7 @@ Why should we do this again and again?
     - 考点：
     - 思路：
 - [152. Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/description/)
+
+- [139. Word Break](https://leetcode.com/problems/word-break/description/)
+
+- [279. Perfect Squares](https://leetcode.com/problems/perfect-squares/description/)
