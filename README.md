@@ -102,57 +102,84 @@
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Linked%20List/23.%20Merge%20k%20Sorted%20Lists/solution.py)
     同上，略。
     
-### Trees and Graphs
+### 树和图 - Trees and Graphs
 
-##### A-Marked
+#### 98. Validate Binary Search Tree
+- ##### [描述](https://leetcode.com/problems/validate-binary-search-tree/description/)
+    给定一个树，判断该二叉树是否是二叉查找树
 
-- [98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/description/)
-    - 描述：验证一棵树是否是二叉查找树
-    - 考点：二叉查找树的性质（中序遍历有序）
-    - 思路：中序遍历，检查中序遍历结果是否有序
-- [94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
-    - 描述：中序遍历二叉树
-    - 考点：二叉树中序遍历，递归，栈
-    - 思路：
-        - 递归：先递归左孩子，然后添加根节点值，然后递归右孩子
-        - 迭代：首先初始化（根节点，未访问）元组并入栈，然后循环，将栈顶出栈，判断节点是否为真，然后判断节点是否已经访问，如果已经访问，则向结果数组添加结果，如果未访问，则依次入栈右、根、左节点，并标记他们的访问情况为否、是、否
-- [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/)
-    - 描述：二叉树层序遍历
-    - 考点：二叉树层序遍历
-    - 思路：维护一个层节点数组，数组存储当前层所有节点，然后循环（如果层节点数组不为空），遍历层节点所有节点的值，然后将层节点所有非空孩子节点作为新层数组
-- [103. Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/)
-    - 描述：Z字形输出二叉树节点的值
-    - 考点：二叉树层序遍历
-    - 思路：维护一个层节点数组，数组存储当前层所有节点，然后循环（如果层节点数组不为空），遍历层节点所有节点的值，单次不反转，双次反转，然后将层节点所有非空孩子节点作为新层数组
-- [116. Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/)
-    - 描述：将一个满二叉树的每一层变成一个链表
-    - 考点：二叉树层序遍历
-    - 思路：维护一个层节点数组，数组存储当前层所有节点，然后循环（如果层节点数组不为空），遍历层节点所有值，然后串成链表
-- [117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/)
-    - 描述：将一个二叉树的每一层变成一个链表
-    - 考点：二叉树层序遍历
-    - 思路：同116思路
-- [235. Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/)
-    - 描述：求二叉查找树两节点的公共祖先
-    - 考点：递归
-    - 思路：如果根节点的值介于两节点的值间，则返回，否则，如果两节点的值都小于根节点，那么递归本函数，将根节点换为根节点的左孩子，否则右递归
-- [236. Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/)
-    - 描述：求二叉树两节点的公共祖先
-    - 考点：二叉树的先根遍历
-    - 思路：分别保存先根遍历到两个目标节点的路径，然后依次对比直到不相同
-- [105. Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/)
-    - 描述：已知某二叉树的先根和中根遍历结果，恢复二叉树
-    - 考点：递归，二叉树先根和中根遍历的性质
-    - 思路：递归，先根遍历结果中，每一个数值都代表一颗子树的根节点，而每一个先根遍历的数值在中根遍历的结果中，其左边所有数值是左子树，右边所有数值是右子树，通过这个性质，用递归求解问题，即如果中根遍历结果不为空，则先根结果出队列，并计算先根结果在中根遍历结果中的索引，以先根结果为根节点，以先根索引为界，递归恢复左右子树
-- [200. Number of Islands](https://leetcode.com/problems/number-of-islands/description/)
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/tree/master/LeetCode/Trees%20and%20Graphs/98.%20Validate%20Binary%20Search%20Tree)
+    将中根遍历该二叉树的结果保存，检查该数组是否有序，如果有序，则是二叉查找树。
     
-    
-##### B-Marked
+#### 94. Binary Tree Inorder Traversal
+- ##### [描述](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
+    给定一颗二叉树，输出中根遍历结果。
 
-- [257. Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/description/)
-    - 描述：给定一颗二叉树，输出根节点到叶子节点的路径，以字符串表示，例如["1->2->5", "1->3"]
-    - 考点：递归，二叉树的先根遍历
-    - 思路：递归先根遍历二叉树，遇到空节点返回，如果某一节点左右孩子都为空，则序列化一次
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/tree/master/LeetCode/Trees%20and%20Graphs/94.%20Binary%20Tree%20Inorder%20Traversal)
+    初始化栈`stack`，将元组`(root, False)`入栈，以栈不为空进入循环，将栈顶元组出栈，结果记为`cur_node, visited`，如果`cur_node`为真时，`visited`为真，即已经访问了该节点，则将该节点的值`cur_node.val`添加到结果数组，如果`visited`为假，即尚未访问该节点，则依次将该节点的右节点，该节点，该节点的左节点入栈，他们的访问标记分别为`False, True, False`，然后继续循环。最后打印结果。
+
+#### 102. Binary Tree Level Order Traversal
+- ##### [描述](https://leetcode.com/problems/binary-tree-level-order-traversal/description/)
+    给定一颗二叉树，输出层序遍历结果。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/102.%20Binary%20Tree%20Level%20Order%20Traversal/solution.py)
+    初始化层节点数组`level_nodes=[root]`，以层节点数组不为空为条件进入循环，向结果数组添加层节点数组内所有节点的值，然后初始化临时层节点数组`tmp_level_nodes`，遍历当前层节点的所有节点，添加他们的左右孩子节点（需为真），然后更新`level_nodes=tmp_level_nodes`，直到循环结束，最后返回结果数组。
+
+#### 103. Binary Tree Zigzag Level Order Traversal
+- ##### [描述](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/)
+    给定一颗二叉树，输出层序遍历结果，双数层的结果逆序。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/103.%20Binary%20Tree%20Zigzag%20Level%20Order%20Traversal/solution.py)
+    同上，在更新双数层节点时逆序即可，略。
+
+#### 116. Populating Next Right Pointers in Each Node
+- ##### [描述](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/)
+    给定一颗满二叉树，将二叉树的每一层变成一个链表（二叉树的节点数据结构已经有`next`成员变量）
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/116.%20Populating%20Next%20Right%20Pointers%20in%20Each%20Node/solution.py)
+    同上，在更新`level_nodes==tmp_level_nodes`后，遍历之，`node.next = next_level_nodes[index + 1]`更新后继节点。
+
+#### 117. Populating Next Right Pointers in Each Node II
+- ##### [描述](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/)
+    给定一颗二叉树，将二叉树的每一层变成一个链表（二叉树的节点数据结构已经有`next`成员变量）
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/117.%20Populating%20Next%20Right%20Pointers%20in%20Each%20Node%20II/solution.py)
+    同上，略。
+
+#### 235. Lowest Common Ancestor of a Binary Search Tree
+- ##### [描述](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/)
+    给定一颗二叉搜索树与其两个节点，返回这两个节点的最小公共祖先。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/235.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/solution.py)
+    利用二叉搜索树性质并递归，如果两个节点的值`pval, qval`都小于`root.val`，那么公共祖先一定在`root`节点的左子树中，所以递归调用当前函数，根节点，即二叉查找树为`root.left`。相反，如果`pval, qval`都大于`root.val`，则公共祖先一定在`root`节点的右子树中，执行上述操作。最终，如果`qval < root.val < pval`，则`root`为最小公共祖先。    
+
+#### 236. Lowest Common Ancestor of a Binary Tree
+- ##### [描述](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/)
+    给定一颗二叉树与其两个节点，返回这两个节点的最小公共祖先。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/236.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/solution.py)
+    初始化`p_path, q_path`分别保存先根遍历到`p, q`节点的路径。路径是指使用先根遍历，遍历该二叉树，直到某个节点的值等于目标节点的值`node.val==target.val`，并将完成标记`flag=Ture`，并将其他遍历结果移出路径，如何保存路径，请参见[257. Binary Tree Paths]()。然后遍历两个路径`p_path, q_path`，最后一个相同的节点，即是最小公共祖先。
+
+#### 105. Construct Binary Tree from Preorder and Inorder Traversal
+- ##### [描述](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/)
+    已知一颗二叉树的先根和中根遍历结果，恢复二叉树。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/105.%20Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/solution.py)
+    利用递归，以中根遍历结果数组不为空的条件进入函数，将先根数组`pre_vals`的首个节点值`root_val`出队列，并求出`root_val`在中根遍历数组中的下标，记为`root_index`，易知，中根遍历数组中，该节点下标左边的值均为其左子树的值，该下标右边的值均为其右子树的值。创建节点`root=TreeNode(root_val)`，而`root.left`则递归本函数，入参分别为`pre_vals`与`in_vals[: root_index]`，而`root.right`则递归本函数，入参分别为`pre_vals`与`in_vals[root_index + 1:]`，最后返回根节点。
+
+#### 200. Number of Islands
+- ##### [描述](https://leetcode.com/problems/number-of-islands/description/)
+    描述较为复杂，概述为寻找一个`0-1`矩阵中“孤岛”，即`1`构成的块的个数。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/200.%20Number%20of%20Islands/solution.py)
+    维护一个`visited`数组，描述了某个下标`i, j`是否已经访问过，以下标`i, j`分别代表行列遍历图，如果图中`grid[i, j] == 1`，则进行深度优先遍历，需注意深度优先遍历的条件，即`0<=i<=row, 0<=j<=col`。如果`i, j`已经访问过，或者`grid[i, j]==0`则返回0，否则将本次遍历区域加1，并将`visited[i, j]=1`后，继续遍历，方向为上、下、左、右。最后以所有行列`i, j`为入口遍历完毕后，返回累计结果。
+    
+#### 257. Binary Tree Paths
+- ##### [描述](https://leetcode.com/problems/binary-tree-paths/description/)
+    给定一颗二叉树，输出先根遍历到所有叶子节点的路径字符串。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/257.%20Binary%20Tree%20Paths/solution.py)
+    初始化临时路径`path`与结果路径集合`paths`，先根遍历二叉树，遍历的过程中，每访问一个节点，如果该节点为空，则返回，否则将其添加到临时路径`path`中，并检查该节点是否有左右孩子节点，如果没有，则执行一次`path`临时路径到结果路径的序列化，结果添加到`paths`中。如果有左右孩子节点，则继续对该节点的左右孩子进行先根遍历。如果访问到叶子节点，则对`path`执行`pop`操作，将该节点出栈。最后返回结果路径集合`paths`。
 
 ### Backtracking
 
