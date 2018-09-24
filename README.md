@@ -64,34 +64,43 @@
 
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Array%20and%20Strings/42.%20Trapping%20Rain%20Water/solution.py)
     首先遍历`height`，找到最高“墙”的下标`i_max_height`，初始化一个`i_cur_peak=0`代表当前“左高峰”，然后从左到`i_max_height`遍历墙高，期间，如果当前“左高峰”小于当前墙高，则更新“左高峰”，否则，更新雨水总量`rain+=i_cur_peak-height[i]`，即“左高峰”减去当前墙高，直到遍历到墙的最高处为止。然后从右到`i_max_height`遍历墙高，逻辑同上。最后返回雨水总量。
-### Linked List
 
-##### A-Marked
+### 链表 - Linked List
 
-- [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/description/)
-    - 描述：给定一个链表，将之就地逆置
-    - 考点：链表
-    - 思路：遍历链表，保存当前结点，将当前结点的后继结点更新为前驱结点，然后将前驱结点更新为当前结点
-- [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description/)
-    - 描述：给定一个链表，判断该链表是否存在闭环
-    - 考点：链表
-    - 思路：快慢指针法，快指针初始化为慢指针的后继，然后用慢指针遍历链表，快指针一次更新两次，如果慢指针见底，则无环，如果快慢指针相遇，则闭环
-- [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/)
-    - 描述：两链表从头到尾表示数字的低位到高位，将两链表相加
-    - 考点：链表
-    - 思路：遍历链表相加，注意进位，本次遍历注意结束时不需要创建新节点，再次遍历（如必要），将剩余链表的高位依次添加，注意进位，最后根据进位标志判断是否需要创建新节点
-- [445. Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/description/)
-    - 描述：两链表从头到位表示数字的高位到地位，不逆序，将链表相加
-    - 考点：链表
-    - 思路：依次遍历两链表，将链表每个节点的值加和，然后求和重新构造链表
-- [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/description/)
-    - 描述：将两条已经排序链表合并，已知第一条链表足够长
-    - 考点：链表
-    - 思路：初始化头结点，定义当前结点为头结点，遍历链表，将第一条与第二条结点中当前较小的结点作为当前节点的后继，然后更新该条当前节点为其后继，最后将多余的结点作为当前节点的后继，然后返回头结点
-- [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/description/)
-    - 描述：合并K个有序链表
-    - 考点：链表
-    - 思路：同上
+#### 206. Reverse Linked List
+- ##### [描述](https://leetcode.com/problems/reverse-linked-list/description/)
+    给定一链表，将它就地逆序。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Linked%20List/206.%20Reverse%20Linked%20List/solution.py)
+    初始化前驱节点`pre_node=None`，通过`head_node`遍历链表，通过`cur_node`临时存储`head_node`，然后更新`head_node = head_node.next`，接着更新当前节点的后继节点为前驱节点，`cur_node.next = pre_node`，最后将前驱节点更新为当前节点，`pre_node = cur_node`，直到遍历结束，最终返回`pre_node`为逆序后的头结点。
+
+#### 141. Linked List Cycle
+- ##### [描述](https://leetcode.com/problems/linked-list-cycle/description/)
+    给定一个链表，判断链表是否存在“环”
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Linked%20List/141.%20Linked%20List%20Cycle/solution.py)
+    分别维护快慢指针，初始化为`s_node, f_node = head, head.next`，以快慢指针都为真的条件进入`while`循环，如果快指针与慢指针地址相等，则存在环，否则更新慢指针，`s_node=s_node.next`，更新快指针两次，`f_node=f_node.next`，`if f_node: f_node = f_node.next`，继续循环，如果循环结束，则不存在环。
+
+#### 2. Add Two Numbers
+- ##### [描述](https://leetcode.com/problems/add-two-numbers/description/)
+    给定两个链表，它们从头节点到尾节点分别表示数字的最低位到最高位，求将两链表相加的结果链表。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Linked%20List/2.%20Add%20Two%20Numbers/solution.py)
+    初始化进位记录标识符`count=0`与结果头节点`head`，以两链表为真的条件进入循环，将当前节点结果相加，并加`count`后，模10，如果进位，则将`count`记为`1`，并保存结果`cur_node.next = Node(x)`，然后更新`cur_node=cur_node.next`，直到循环结束。如果仍有较长链表遍历未结束，则遍历该链表，依次将其节点与`count`相加后添加在结果节点的`cur_node`后，直到遍历结束，最后检查进位是否需要需要创建新节点，并返回结果头节点。
+    
+#### 21. Merge Two Sorted Lists
+- ##### [描述](https://leetcode.com/problems/merge-two-sorted-lists/description/)
+    给定两个有序链表，将他们合并成新的有序链表，并返回这个链表的头节点。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Linked%20List/21.%20Merge%20Two%20Sorted%20Lists/solution.py)
+    初始化新头节点与当前节点记为`head_node`与`cur_node`，以两链表为真的条件进入循环，比较两链表的当前值，将值小的节点添加为`cur_node`的后继节点，然后更新该节点为之后继，然后更新`cur_node=cur_node.next`，直到循环结束。循环结束后，如果仍有链表为真，则将剩余部分作为`cur_node`的后继，然后返回头节点。
+    
+#### 23. Merge k Sorted Lists
+- ##### [描述](https://leetcode.com/problems/merge-k-sorted-lists/description/)
+    给定k个有序链表，将他们合并成新的有序链表，并返回这个链表的头节点。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Linked%20List/23.%20Merge%20k%20Sorted%20Lists/solution.py)
+    同上，略。
     
 ### Trees and Graphs
 
