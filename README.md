@@ -202,3 +202,7 @@ Why should we do this again and again?
 - [139. Word Break](https://leetcode.com/problems/word-break/description/)
 
 - [279. Perfect Squares](https://leetcode.com/problems/perfect-squares/description/)
+
+- [62. Unique Paths](https://leetcode.com/problems/unique-paths/description/)
+
+- [120. Triangle](https://leetcode.com/problems/triangle/description/)
