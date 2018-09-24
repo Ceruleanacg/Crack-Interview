@@ -181,83 +181,123 @@
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/257.%20Binary%20Tree%20Paths/solution.py)
     初始化临时路径`path`与结果路径集合`paths`，先根遍历二叉树，遍历的过程中，每访问一个节点，如果该节点为空，则返回，否则将其添加到临时路径`path`中，并检查该节点是否有左右孩子节点，如果没有，则执行一次`path`临时路径到结果路径的序列化，结果添加到`paths`中。如果有左右孩子节点，则继续对该节点的左右孩子进行先根遍历。如果访问到叶子节点，则对`path`执行`pop`操作，将该节点出栈。最后返回结果路径集合`paths`。
 
-### Backtracking
+### 回溯 - Backtracking
 
-##### A-Marked
+#### 17. Letter Combinations of a Phone Number
+- ##### [描述](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
+    2-9数字中每个数字对应了电话号码上的几个字母，输入一串2-9的数字，输出数字对应的字母的所有排列组合
 
-- [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
-    - 描述：2-9数字中每个数字对应了电话号码上的几个字母，输入一串2-9的数字，输出数字对应的字母的所有排列组合
-    - 考点：回溯、深度优先遍历、递归
-    - 思路：注意DFS函数参数设计和递归停止条件，参数应该包含（当前当前索引、数字、当前模式、结果），如果索引等于长度，则应该停止，向结果添加模式，否则，遍历当前数字对应的字母，然后依次DFS，此时索引自增，模式自增当前字母
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Backtracking/17.%20Letter%20Combinations%20of%20a%20Phone%20Number/solution.py)
+    注意DFS函数参数设计和递归停止条件，参数应该包含（当前当前索引、数字、当前模式、结果），如果索引等于长度，则应该停止，向结果添加模式，否则，遍历当前数字对应的字母，然后依次DFS，此时索引自增，模式自增当前字母
 
-### Sorting and Searching
+### 排序和搜索 - Sorting and Searching
 
-##### A-Marked
+#### 26. Remove Duplicates from Sorted Array
+- ##### [描述](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
+    就地从排序数组里移除冗余数字
 
-- [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
-    - 描述：就地从排序数组里移除冗余数字
-    - 考点：
-    - 思路：定义一个"有序尾索引"，该索引永远为有序数组无冗余的"前端"，然后遍历数组，如果数组的"有序尾索引"的值不等于当前值，则有序尾索引自增，然后更新有序尾索引对应的值为当前值，最后返回有序尾索引自增
-- [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/description/)
-    - 描述：就地合并两个排序后的数组（第一个数组足够长）
-    - 考点：分治
-    - 思路：从后遍历两个数组，根据当前两索引对应的值的大小，将较大的索引对应的值放进合并索引（m + n - 1)位置中，然后对应索引自减，最后如果第二个数组索引仍然不为，0则继续填充合并索引位置，两索引自减少
-- [75. Sort Colors](https://leetcode.com/problems/sort-colors/description/)
-    - 描述：三色排序，即0，1，2就地O(n)时间排序，不可用基数排序
-    - 考点：双指针
-    - 思路：维护三个指针，分别是左，当前，右指针，以当前指针小于等于右指针为条件进入循环，如果当前数字等于2，则将当前数字与右指针交换，然后右指针左移，当前与左指针不动，如果当前数字等于1，左右指针均不动，当前指针自增，如果当前数字等于0，交换当前与左指针的值，然后当前和左指针自增。
-- [153. Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/)
-    - 描述：有序数组在某一位被完全反转，例如[0, 1, 2, 3, 4] -> [3, 4, 0, 1, 2]，找出最小元素，无重复元素
-    - 考点：二分查找
-    - 思路：取左中右索引，如果中值比右值小，则将右索引更新为中索引，如果中值大于右值，则数组在此被反转，将左索引更新为中索引加1
-- [154. Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/description/)
-    - 描述：有序数组在某一位被完全反转，例如[0, 2, 2, 3, 4] -> [3, 4, 0, 2, 2]，找出最小元素，可能有重复元素
-- [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/description/)
-    - 描述：有序数组以某一个元素为枢轴进行旋转，例如[0, 1, 2, 4, 5, 6, 7] -> [4, 5, 6, 7 ,0, 1, 2]，在该数组中寻找一个目标数字，如果存在则返回下标，否则返回-1
-    - 考点：二分查找
-    - 思路：找到枢轴，然后比较目标数和枢轴的大小，如果目标数大于枢轴，则不存在。如果目标数小于枢轴且大于等于首个元素，则在此区间二分查找，否则在枢轴后至末尾二分查找
-- [74. Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/description/)
-    - 描述：在一个二维数组里查找某个目标数，这个二维数组是按下标严格递增的，如存在则返回True，否则返回False
-    - 考点：二分查找
-    - 思路：按列遍历二维数组的首个元素，找到临界值行，在临界值行的上一行，进行二分查找
-- [240. Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/description/)
-    - 描述：在一个二维数组里查找某个目标数，这个二维数组是的每一个行是有序的，每一列是有序的，如果存在返回True，否则返回False
-    - 考点：二分查找
-    - 思路：按列遍历二维数组的首个元素，找到临界值行，遍历0行至临界行进行二分查找
+- ##### [题解]()
+    定义一个"有序尾索引"，该索引永远为有序数组无冗余的"前端"，然后遍历数组，如果数组的"有序尾索引"的值不等于当前值，则有序尾索引自增，然后更新有序尾索引对应的值为当前值，最后返回有序尾索引自增
 
-### Dynamic Programming
+#### 88. Merge Sorted Array
+- ##### [描述](https://leetcode.com/problems/merge-sorted-array/description/)
+    就地合并两个排序后的数组（第一个数组足够长）
 
-##### A-Marked
+- ##### [题解]()
+    从后遍历两个数组，根据当前两索引对应的值的大小，将较大的索引对应的值放进合并索引（m + n - 1)位置中，然后对应索引自减，最后如果第二个数组索引仍然不为，0则继续填充合并索引位置，两索引自减少
 
-- [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
-    - 描述：输入一个数组代表一个时间段的股票价格，按照时间顺序，找到最佳买入和卖出价格，计算最大收益，如果没有最佳择时，收益为0
-    - 考点：
-    - 思路：初始化最大收益和最小价格为0，按顺序遍历价格，根据当前价格更新最小价格，根据当前最小价格和当前价格计算收益，根据最大收益和当前收益更新最大收益
-- [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
-    - 描述：输入一个整型数组，输出最大子串和
-    - 考点：动态规划
-    - 思路：`dp[index] = max(num, num + dp[index - 1])`其中`dp[index]`为第index个下标的最大子数组和
-- [300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/description/)
-    - 描述：
-    - 考点：
-    - 思路：
+#### 75. Sort Colors
+- ##### [描述](https://leetcode.com/problems/sort-colors/description/)
+    三色排序，即0，1，2就地O(n)时间排序，不可用基数排序
 
-##### B-Marked
+- ##### [题解]()
+    维护三个指针，分别是左，当前，右指针，以当前指针小于等于右指针为条件进入循环，如果当前数字等于2，则将当前数字与右指针交换，然后右指针左移，当前与左指针不动，如果当前数字等于1，左右指针均不动，当前指针自增，如果当前数字等于0，交换当前与左指针的值，然后当前和左指针自增。
+    
+#### 153. Find Minimum in Rotated Sorted Array
+- ##### [描述](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/)
+    有序数组在某一位被完全反转，例如[0, 1, 2, 3, 4] -> [3, 4, 0, 1, 2]，找出最小元素，无重复元素
 
-- [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/description/)
-    - 描述：给定一个n层楼梯，n是正数，可以一次上1阶，也可以一次上2阶，输出有多少种上法
-    - 考点：动态规划
-    - 思路：`dp[i] = dp[i - 1] + dp[i - 2]`
-- [198. House Robber](https://leetcode.com/problems/house-robber/description/)
-    - 描述：
-    - 考点：
-    - 思路：
-- [152. Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/description/)
+- ##### [题解]()
+    取左中右索引，如果中值比右值小，则将右索引更新为中索引，如果中值大于右值，则数组在此被反转，将左索引更新为中索引加1
 
-- [139. Word Break](https://leetcode.com/problems/word-break/description/)
+#### 33. Search in Rotated Sorted Array
+- ##### [描述](https://leetcode.com/problems/search-in-rotated-sorted-array/description/)
+    有序数组以某一个元素为枢轴进行旋转，例如[0, 1, 2, 4, 5, 6, 7] -> [4, 5, 6, 7 ,0, 1, 2]，在该数组中寻找一个目标数字，如果存在则返回下标，否则返回-1
 
-- [279. Perfect Squares](https://leetcode.com/problems/perfect-squares/description/)
+- ##### [题解]()
+    找到枢轴，然后比较目标数和枢轴的大小，如果目标数大于枢轴，则不存在。如果目标数小于枢轴且大于等于首个元素，则在此区间二分查找，否则在枢轴后至末尾二分查找
 
-- [62. Unique Paths](https://leetcode.com/problems/unique-paths/description/)
+#### 74. Search a 2D Matrix
+- ##### [描述](https://leetcode.com/problems/search-a-2d-matrix/description/)
+    在一个二维数组里查找某个目标数，这个二维数组是按下标严格递增的，如存在则返回True，否则返回False
 
-- [120. Triangle](https://leetcode.com/problems/triangle/description/)
+- ##### [题解]()
+    按列遍历二维数组的首个元素，找到临界值行，在临界值行的上一行，进行二分查找
+
+#### 240. Search a 2D Matrix II
+- ##### [描述](https://leetcode.com/problems/search-a-2d-matrix-ii/description/)
+    在一个二维数组里查找某个目标数，这个二维数组是的每一个行是有序的，每一列是有序的，如果存在返回True，否则返回False
+
+- ##### [题解]()
+    按列遍历二维数组的首个元素，找到临界值行，遍历0行至临界行进行二分查找
+
+
+### 动态规划 - Dynamic Programming
+
+#### 121. Best Time to Buy and Sell Stock
+- ##### [描述](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
+    输入一个数组代表一个时间段的股票价格，按照时间顺序，找到最佳买入和卖出价格，计算最大收益，如果没有最佳择时，收益为0
+
+- ##### [题解]()
+    初始化最大收益和最小价格为0，按顺序遍历价格，根据当前价格更新最小价格，根据当前最小价格和当前价格计算收益，根据最大收益和当前收益更新最大收益
+
+#### 53. Maximum Subarray
+- ##### [描述](https://leetcode.com/problems/maximum-subarray/)
+    输入一个整型数组，输出最大子串和
+
+- ##### [题解]()
+    `dp[index] = max(num, num + dp[index - 1])`其中`dp[index]`为第index个下标的最大子数组和
+
+#### 70. Climbing Stairs
+- ##### [描述](https://leetcode.com/problems/climbing-stairs/description/)
+    给定一个n层楼梯，n是正数，可以一次上1阶，也可以一次上2阶，输出有多少种上法
+
+- ##### [题解]()
+    `dp[i] = dp[i - 1] + dp[i - 2]`
+
+#### 198. House Robber
+- ##### [描述](https://leetcode.com/problems/house-robber/description/)
+    
+
+- ##### [题解]()
+    
+#### 152. Maximum Product Subarray
+- ##### [描述](https://leetcode.com/problems/maximum-product-subarray/description/)
+    
+
+- ##### [题解]()
+    
+#### 139. Word Break
+- ##### [描述](https://leetcode.com/problems/word-break/description/)
+    
+
+- ##### [题解]()
+    
+#### 279. Perfect Squares
+- ##### [描述](https://leetcode.com/problems/perfect-squares/description/)
+    
+
+- ##### [题解]()
+    
+#### 62. Unique Paths
+- ##### [描述](https://leetcode.com/problems/unique-paths/description/)
+    
+
+- ##### [题解]()
+    
+#### 120. Triangle
+- ##### [描述](https://leetcode.com/problems/triangle/description/)
+    
+
+- ##### [题解]()
+    
