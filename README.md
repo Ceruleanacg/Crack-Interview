@@ -185,7 +185,7 @@
 
 #### 17. Letter Combinations of a Phone Number
 - ##### [描述](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
-    2-9数字中每个数字对应了电话号码上的几个字母，输入一串2-9的数字，输出数字对应的字母的所有排列组合
+    数字`2-9`中，每个数字对应电话号码上的几个字母，给定个由`2-9`组成的字符串，输出所有可能的字母组合。
 
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Backtracking/17.%20Letter%20Combinations%20of%20a%20Phone%20Number/solution.py)
     注意DFS函数参数设计和递归停止条件，参数应该包含（当前当前索引、数字、当前模式、结果），如果索引等于长度，则应该停止，向结果添加模式，否则，遍历当前数字对应的字母，然后依次DFS，此时索引自增，模式自增当前字母
