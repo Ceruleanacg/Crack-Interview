@@ -194,10 +194,10 @@
 
 #### 26. Remove Duplicates from Sorted Array
 - ##### [描述](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
-    就地从排序数组里移除冗余数字
+    给定一个已经排序的数组，数组中可能有重复元素，就地移除重复元素，并返回新的数组长度。
 
-- ##### [题解]()
-    定义一个"有序尾索引"，该索引永远为有序数组无冗余的"前端"，然后遍历数组，如果数组的"有序尾索引"的值不等于当前值，则有序尾索引自增，然后更新有序尾索引对应的值为当前值，最后返回有序尾索引自增
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Sorting%20and%20Searching/26.%20Remove%20Duplicates%20from%20Sorted%20Array/solution.py)
+    初始化有序下标`j == 0`，以下标`i = 0`开始遍历排序数组`nums`，如果排序数组`nums`在有序下标`j`的值不等于在下标`i`的值，则将`j += 1`，并使得`nums[j] = nums[i]`。如果排序数组`nums`在有序下标`j`的值等于下标`i`的值，则什么都不做。最后返回`j + 1`作为结果。
 
 #### 88. Merge Sorted Array
 - ##### [描述](https://leetcode.com/problems/merge-sorted-array/description/)
