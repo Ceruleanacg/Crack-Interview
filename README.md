@@ -211,14 +211,14 @@
     三色排序，给定一个整型数组`nums`，只包含`0, 1, 2`三种元素，以O(n)的时间就地排序，不可使用基数排序，后返回结果。
 
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Sorting%20and%20Searching/75.%20Sort%20Colors/solution.py)
-    初始化三个下标`i, j, k`，分别代表左下标，右下标，当前下标。然后`k < j`，即当前下标小于右下标为条件进入循环，如果`nums[k] == 2`，则交换`num[k]`与`num[j]`的值，然后`j -= 1`，即右下标左移。如果`nums[k] == 1`，则`k += 1`。如果`nums[k] == 0`，则交换`num[k]`与`nums[i]`的值，然后`i += 1, k += 1`，直到循环结束。
+    初始化三个下标`i == 0, j == len(nums) - 1, k == 0`，分别代表左下标，右下标，当前下标。然后`k < j`，即当前下标小于右下标为条件进入循环，如果`nums[k] == 2`，则交换`num[k]`与`num[j]`的值，然后`j -= 1`，即右下标左移。如果`nums[k] == 1`，则`k += 1`。如果`nums[k] == 0`，则交换`num[k]`与`nums[i]`的值，然后`i += 1, k += 1`，直到循环结束。
     
 #### 153. Find Minimum in Rotated Sorted Array
 - ##### [描述](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/)
-    有序数组在某一位被完全反转，例如[0, 1, 2, 3, 4] -> [3, 4, 0, 1, 2]，找出最小元素，无重复元素
+    给定一个有序数组`nums`，数组在某一位被翻转，例如：如[0, 1, 2, 3, 4] -> [3, 4, 0, 1, 2]，返回最小元素。
 
-- ##### [题解]()
-    取左中右索引，如果中值比右值小，则将右索引更新为中索引，如果中值大于右值，则数组在此被反转，将左索引更新为中索引加1
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Sorting%20and%20Searching/153.%20Find%20Minimum%20in%20Rotated%20Sorted%20Array/solution.py)
+    初始化三个下标`i == 0, j == len(nums) - 1, mid == 0`，分别代表左下标，右下标，中下标。然后以`i < j`为条件进入循环，计算`mid = (i + j) // 2`，如果`nums[mid] < nums[j]`，则说明区间有序，更新`j = mid`，继续循环。如果`nums[mid] >= nums[j]`，则说明区间内存在翻转，最小元素应在翻转区间，将`i = mid + 1`后，继续循环。当循环结束，返回nums[i]作为结果。
 
 #### 33. Search in Rotated Sorted Array
 - ##### [描述](https://leetcode.com/problems/search-in-rotated-sorted-array/description/)
