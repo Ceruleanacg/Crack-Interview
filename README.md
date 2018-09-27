@@ -203,15 +203,15 @@
 - ##### [描述](https://leetcode.com/problems/merge-sorted-array/description/)
     给定两个排序后的数组`a, b`，其中`a`数组足够长，归并两个排序数组至`a`数组并返回。
 
-- ##### [题解]()
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/tree/master/LeetCode/Sorting%20and%20Searching/88.%20Merge%20Sorted%20Array)
     从后遍历数组`a, b`，初始化三个下标`a_i == len(a) - 1`，`b_i == len(b) - 1`, `m_i = len(a) + len(b) - 1`，分别代表`a`的下标，`b`的下标，结果下标，以`a_i, b_i`均大于等于`0`进入循环，如果`a[a_i] > b[b_i]`，则`a[m_i] = a[a_i]`，然后`m_i -= 1`，`a_i -= 1`，反之同理，直到循环结束。如果`b_i`仍大于等于`0`，则说明`b`仍有剩余，这些数字都很小，所以以`b_i`大于等于`0`为条件进入循环，依次`a[m_i] = b[b_i]`，然后`m_i -= 1`，然后`b_i -= 1`，最后结束。
 
 #### 75. Sort Colors
 - ##### [描述](https://leetcode.com/problems/sort-colors/description/)
-    三色排序，即0，1，2就地O(n)时间排序，不可用基数排序
+    三色排序，给定一个整型数组`nums`，只包含`0, 1, 2`三种元素，以O(n)的时间就地排序，不可使用基数排序，后返回结果。
 
-- ##### [题解]()
-    维护三个指针，分别是左，当前，右指针，以当前指针小于等于右指针为条件进入循环，如果当前数字等于2，则将当前数字与右指针交换，然后右指针左移，当前与左指针不动，如果当前数字等于1，左右指针均不动，当前指针自增，如果当前数字等于0，交换当前与左指针的值，然后当前和左指针自增。
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Sorting%20and%20Searching/75.%20Sort%20Colors/solution.py)
+    初始化三个下标`i, j, k`，分别代表左下标，右下标，当前下标。然后`k < j`，即当前下标小于右下标为条件进入循环，如果`nums[k] == 2`，则交换`num[k]`与`num[j]`的值，然后`j -= 1`，即右下标左移。如果`nums[k] == 1`，则`k += 1`。如果`nums[k] == 0`，则交换`num[k]`与`nums[i]`的值，然后`i += 1, k += 1`，直到循环结束。
     
 #### 153. Find Minimum in Rotated Sorted Array
 - ##### [描述](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/)
