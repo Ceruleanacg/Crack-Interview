@@ -246,10 +246,10 @@
 
 #### 121. Best Time to Buy and Sell Stock
 - ##### [描述](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
-    输入一个数组代表一个时间段的股票价格，按照时间顺序，找到最佳买入和卖出价格，计算最大收益，如果没有最佳择时，收益为0
+    给定一个数组`prices`，数组内每个元素代表了某个股票某时刻的价格，选择一个时间买入，一个时间卖出，返回最大的收益。
 
-- ##### [题解]()
-    初始化最大收益和最小价格为0，按顺序遍历价格，根据当前价格更新最小价格，根据当前最小价格和当前价格计算收益，根据最大收益和当前收益更新最大收益
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Dynamic%20Programming/121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock/solution.py)
+    初始化最大收益`s_max=0`，最小价格`p_min=-inf`，遍历`prices`中的每个价格`price`，取`p_min = min(price, p_min)`，然后计算当前买入价格收益`profit = price - p_min`，选择更新最大收益`s_max=max(profit, s_max)`，最后返回`s_max`作为结果。
 
 #### 53. Maximum Subarray
 - ##### [描述](https://leetcode.com/problems/maximum-subarray/)
