@@ -229,10 +229,10 @@
 
 #### 74. Search a 2D Matrix
 - ##### [描述](https://leetcode.com/problems/search-a-2d-matrix/description/)
-    在一个二维数组里查找某个目标数，这个二维数组是按下标严格递增的，如存在则返回True，否则返回False
+    给定一个二维数组`nums`和一个目标数`target`，该二维数组的每个元素是严格按下标增长的。在二维数组`nums`查找元素`target`，如果存在则返回`True`，否则返回`False`。
 
-- ##### [题解]()
-    按列遍历二维数组的首个元素，找到临界值行，在临界值行的上一行，进行二分查找
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Sorting%20and%20Searching/74.%20Search%20a%202D%20Matrix/solution.py)
+    初始化`peak_j = 0`，以`nums[j][0] <= target`为条件，遍历`nums`每行的第一个元素，记录`peak_j = j`，在区间行`nums[j][:]`进行二分查找，后返回结果。
 
 #### 240. Search a 2D Matrix II
 - ##### [描述](https://leetcode.com/problems/search-a-2d-matrix-ii/description/)
