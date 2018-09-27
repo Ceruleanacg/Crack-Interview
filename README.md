@@ -222,10 +222,10 @@
 
 #### 33. Search in Rotated Sorted Array
 - ##### [描述](https://leetcode.com/problems/search-in-rotated-sorted-array/description/)
-    有序数组以某一个元素为枢轴进行旋转，例如[0, 1, 2, 4, 5, 6, 7] -> [4, 5, 6, 7 ,0, 1, 2]，在该数组中寻找一个目标数字，如果存在则返回下标，否则返回-1
+    给定一个有序数组`nums`和目标数`target`，数组在某一位被翻转，例如：如[0, 1, 2, 3, 4] -> [3, 4, 0, 1, 2]，查找`target`，如果存在则返回其下标，否则返回`-1`。
 
-- ##### [题解]()
-    找到枢轴，然后比较目标数和枢轴的大小，如果目标数大于枢轴，则不存在。如果目标数小于枢轴且大于等于首个元素，则在此区间二分查找，否则在枢轴后至末尾二分查找
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Sorting%20and%20Searching/33.%20Search%20in%20Rotated%20Sorted%20Array/solution.py)
+    初始化`peak_i = -1, peak_num == -inf`，代表最大值和其下标。遍历数组`nums`，找到最大值和其下标。此时，如果`target`大于`peak_num`，则返回`-1`。然后进行判断，如果`target >= nums[0]`，则在`[0:peak_i + 1]`区间进行二分查找，如果`target < nums[0]`，则`target`在翻转区间内，则在`[peak_i + 1:]`区间内进行二分查找。
 
 #### 74. Search a 2D Matrix
 - ##### [描述](https://leetcode.com/problems/search-a-2d-matrix/description/)
