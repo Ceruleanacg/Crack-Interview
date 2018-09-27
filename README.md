@@ -185,10 +185,10 @@
 
 #### 17. Letter Combinations of a Phone Number
 - ##### [描述](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
-    2-9数字中每个数字对应了电话号码上的几个字母，输入一串2-9的数字，输出数字对应的字母的所有排列组合
+    数字`2-9`中，每个数字对应电话号码上的几个字母，给定一个由`2-9`组成的字符串，输出所有可能的字母组合。
 
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Backtracking/17.%20Letter%20Combinations%20of%20a%20Phone%20Number/solution.py)
-    注意DFS函数参数设计和递归停止条件，参数应该包含（当前当前索引、数字、当前模式、结果），如果索引等于长度，则应该停止，向结果添加模式，否则，遍历当前数字对应的字母，然后依次DFS，此时索引自增，模式自增当前字母
+    初始化结果数组`result`，对给定数字字符串`s`以及每个字符所能对应的字母，进行深度优先遍历。即，遍历数字字符串`s`，对每一个下标`i`，与其对应的数字`num`，查询它可能的组成字母，依次递归调用深度优先遍历函数。深度优先遍历函数有四个参数，分别是当前下标`i`，数字字符串`s`，当前组合`pattern`，结果数组`result`，直到当前下标`i == len(s)`时，将`pattern`添加到`result`中，并返回结果数组。
 
 ### 排序和搜索 - Sorting and Searching
 
