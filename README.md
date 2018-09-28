@@ -287,17 +287,12 @@
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Dynamic%20Programming/139.%20Word%20Break/solution.py)
     初始化`dp = [False] * len(s) + 1`，`dp[i]`表示以`s[i]`结尾的子串，是否能被`wordDic`中的单词组合。则外循环以下标`i`遍历字符串`s`，内循环以下标`j`遍历`i`到`len(s)`，如果`dp[i]`为真，即以`s[i]`结尾的子串可以被`wordDic`中的单词组合，而且子串`s[i: j+1]`在`wordDic`中，那么`dp[j + 1] = Ture`，最后，返回`dp[-1]`作为结果。
     
-#### 279. Perfect Squares
-- ##### [描述](https://leetcode.com/problems/perfect-squares/description/)
-    
-
-- ##### [题解]()
-    
 #### 62. Unique Paths
 - ##### [描述](https://leetcode.com/problems/unique-paths/description/)
-    
+    给定一个二维数组的行列`m, n`，从位置`mat[0][0]`出发，到达`mat[-1][-1]`，限定能向右或者向下移动，返回走法的总数。
 
-- ##### [题解]()
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Dynamic%20Programming/62.%20Unique%20Paths/solution.py)
+    初始化`dp = [[1 for _ in range(0, n)] for _ in range(0, m)]`，`dp[i][j]`表示从出发点`mat[0][0]`到该点的走法数量。则以下标`i, j`遍历行列，则可以写出递推式：`dp[i][j] = dp[i - 1][j] + dp[i][j - 1]`，最后返回`dp[-1][-1]`作为结果。
     
 #### 120. Triangle
 - ##### [描述](https://leetcode.com/problems/triangle/description/)
