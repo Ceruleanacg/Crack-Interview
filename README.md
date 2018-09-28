@@ -296,7 +296,7 @@
     
 #### 120. Triangle
 - ##### [描述](https://leetcode.com/problems/triangle/description/)
-    
+    给定一个数组`triangle`，`triangle`中的元素均为整型数组。现自顶向下在`triangle`中的每行选择一个数，限定在`i`行选择第`j`个数后，在`i+1`行选择时只能选择`j, j + 1`，最终使得它们的和最小，并返回结果。
 
-- ##### [题解]()
-    
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Dynamic%20Programming/120.%20Triangle/solution.py)
+    初始化`dp = [0] * (len(triangle) + 1)`，`dp[i]`表示“自底向上”选择数字时，第`i`行为止最小的和。则以`i`为下标，倒序遍历`triangle`的每一行，以`j`为下标遍历`triangle[i]`每一个元素，可以写出递推式：`dp[j] = traiangle[i][j] + min(dp[j], dp[j + 1])`，最后返回`dp[0]`作为结果。
