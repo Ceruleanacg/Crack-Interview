@@ -275,10 +275,11 @@
 
 #### 152. Maximum Product Subarray
 - ##### [描述](https://leetcode.com/problems/maximum-product-subarray/description/)
-    
+    给定一个整型数组`nums`，返回最大的子数组的积。
 
-- ##### [题解]()
-    
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Dynamic%20Programming/152.%20Maximum%20Product%20Subarray/solution.py)
+    初始化`dp = [0] * len(nums)`，`dp[i]`表示以`nums[i]`为最后一个元素的子数组的最大子数组的积。由于负数的存在，需要初始化`dp_min = [0] * len(nums)`和`dp_max = [0] * len(nums)`，`dp_min[i]`与`dp_max[i]`分别代表以`nums[i]`为最后一个元素的子数组的最小数组积和最大数组积。`dp_min`的意义在于，由于负数的存在，如果`dp_min[i - 1]`是一个负数，而`nums[i]`同样是一个负数，则`dp_min[i - 1] * nums[i]`将会是正数。所以我们可以写出递推式：`dp[i] = max(dp_min[i-1] * nums[i], dp_max[i-1] * nums[i], nums[i])`，然后更新`dp_max[i] = dp[i]`，`dp_min[i] = min(dp_min[i-1] * nums[i], dp_max[i-1] * nums[i], nums[i])`，最后返回`max(dp)`作为结果。
+
 #### 139. Word Break
 - ##### [描述](https://leetcode.com/problems/word-break/description/)
     
