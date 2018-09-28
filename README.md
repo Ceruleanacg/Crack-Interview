@@ -268,10 +268,11 @@
 
 #### 198. House Robber
 - ##### [描述](https://leetcode.com/problems/house-robber/description/)
-    
+    给定一个数组`nums`，`nums`中每个下标`i`对应的`nums[i]`代表`i`位置财产的价值。限定不可以同时拿取两个相邻位置的财产，返回可拿取财产的最大值。
 
-- ##### [题解]()
-    
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Dynamic%20Programming/198.%20House%20Robber/solution.py)
+    初始化`dp = [0] * len(nums)`，则有初始情况`dp[0] = nums[0]`，`dp[1] = max(nums[0], nums[1])`，`dp[i]`代表了当财产个数为`i`个时，可拿取财产的最大值，所以，可以写出递推式：`dp[i] = max(dp[i - 2] + nums[i], dp[i - 1])`，最后返回`max(dp[-1], dp[-2])`作为结果。
+
 #### 152. Maximum Product Subarray
 - ##### [描述](https://leetcode.com/problems/maximum-product-subarray/description/)
     
