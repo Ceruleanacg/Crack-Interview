@@ -282,9 +282,10 @@
 
 #### 139. Word Break
 - ##### [描述](https://leetcode.com/problems/word-break/description/)
-    
+    给定一个字符串`s`，给定一个字符串数组`wordDic`，其元素是一些单词。如果`s`能被`wordDic`中的单词组合而成，则返回`True`，否则返回`False`。
 
-- ##### [题解]()
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Dynamic%20Programming/139.%20Word%20Break/solution.py)
+    初始化`dp = [False] * len(s) + 1`，`dp[i]`表示以`s[i]`结尾的子串，是否能被`wordDic`中的单词组合。则外循环以下标`i`遍历字符串`s`，内循环以下标`j`遍历`i`到`len(s)`，如果`dp[i]`为真，即以`s[i]`结尾的子串可以被`wordDic`中的单词组合，而且子串`s[i: j+1]`在`wordDic`中，那么`dp[j + 1] = Ture`，最后，返回`dp[-1]`作为结果。
     
 #### 279. Perfect Squares
 - ##### [描述](https://leetcode.com/problems/perfect-squares/description/)
