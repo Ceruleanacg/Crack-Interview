@@ -253,17 +253,18 @@
 
 #### 53. Maximum Subarray
 - ##### [描述](https://leetcode.com/problems/maximum-subarray/)
-    输入一个整型数组，输出最大子串和
+    给定一个整型数组`nums`，返回最大的子数组的和。
 
-- ##### [题解]()
-    `dp[index] = max(num, num + dp[index - 1])`其中`dp[index]`为第index个下标的最大子数组和
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Dynamic%20Programming/53.%20Maximum%20Subarray/solution.py)
+    初始化`dp = [0] * len(nums)`，以下标`i`遍历数组`nums`，则`dp[i] = max(nums[i], nums[i] + dp[i - 1])`，即以下标为`i`截止的子数组`nums[:i+1]`，它的最大
+    `dp[i] = max(num, num + dp[i - 1])`其中`dp[i]`为第`i`个下标的最大子数组和。
 
 #### 70. Climbing Stairs
 - ##### [描述](https://leetcode.com/problems/climbing-stairs/description/)
-    给定一个n层楼梯，n是正数，可以一次上1阶，也可以一次上2阶，输出有多少种上法
+    给定一个`n`阶楼梯，一次可以爬`1`阶楼梯或者`2`阶楼梯，返回爬到`n`阶，有多少种爬法。
 
-- ##### [题解]()
-    `dp[i] = dp[i - 1] + dp[i - 2]`
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Dynamic%20Programming/70.%20Climbing%20Stairs/solution.py)
+    初始化`dp = [0] * (n + 1)`，`dp[i]`表示爬到第`i`阶，有多少种爬法，所以，可以写出递推式：`dp[i] = dp[i - 1] + dp[i - 2]`，最后，返回`dp[n - 1]`作为结果。
 
 #### 198. House Robber
 - ##### [描述](https://leetcode.com/problems/house-robber/description/)
