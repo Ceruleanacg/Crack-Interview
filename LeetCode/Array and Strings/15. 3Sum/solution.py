@@ -21,7 +21,7 @@ class Solution:
             for x in nums[i + 1:]:
                 y = target - x
                 if y in y_map:
-                    res = -target, x, y_map[y]
+                    res = -target, x, y
                     if res not in results:
                         results[res] = list(res)
                 else:
@@ -29,6 +29,6 @@ class Solution:
         return list(results.values())
 
 
-# print(Solution().threeSum([0, 0, 0]))
-# print(Solution().threeSum([1, 2, -2, -1]))
-# print(Solution().threeSum([-1, 0, 1, 2, -1, -4]))
+print(Solution().threeSum([0, 0, 0]))
+print(Solution().threeSum([1, 2, -2, -1]))
+print(Solution().threeSum([-1, 0, 1, 2, -1, -4]))

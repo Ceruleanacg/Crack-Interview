@@ -56,7 +56,6 @@
 
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Array%20and%20Strings/49.%20Group%20Anagrams/solution.py)
     维护一个字典记作`dic`，其键值分别为按字典序排序后的字符串和字符串型数组。遍历字符串型数组，对每一个字符串`s`，按字典序排序，结果记作`s_sorted`，在`dic`中取`s_sorted`的值`res`，`res`是一个字符串型的数组，然后将`s`添加进`res`，最后返回`dic`的`values`作为结果。
-    
 
 #### 42. Trapping Rain Water
 - ##### [描述](https://leetcode.com/problems/trapping-rain-water/description/)
@@ -64,6 +63,13 @@
 
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Array%20and%20Strings/42.%20Trapping%20Rain%20Water/solution.py)
     首先遍历`height`，找到最高“墙”的下标`i_max_height`，初始化一个`i_cur_peak=0`代表当前“左高峰”，然后从左到`i_max_height`遍历墙高，期间，如果当前“左高峰”小于当前墙高，则更新“左高峰”，否则，更新雨水总量`rain+=i_cur_peak-height[i]`，即“左高峰”减去当前墙高，直到遍历到墙的最高处为止。然后从右到`i_max_height`遍历墙高，逻辑同上。最后返回雨水总量。
+
+#### 15. 3Sum
+- ##### [描述](https://leetcode.com/problems/3sum/description/)
+    给定一个整型数组`num`，例如`[-1, 0, 1, 2, -1, -4]`，返回一组结果，每个结果是一个数组，满足：在`nums`中选3个数字，这3个数字的和为`0`，过滤重复解。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Array%20and%20Strings/15.%203Sum/solution.py)
+    首先，3个数字`a, b, c`的和为`0`，即`a + b = c`，则将问题转化为了一个`Two Sum`问题，所以，我们先排序数组`nums`，并初始化`targets`数组：`[-num for num in nums]`。以下标`i`进入循环，初始化`y_map`与`target = targets[i]`，`y_map`用来记录是否`y`已经查找过。然后遍历`nums[i + 1:]`的每一个元素`x`，将`target - x`记作`y`，如果`y`在`y_map`中，则添加结果`-target, x, y`作为一个解。否则，`y_map[x] = x`，记录当前`x`到`y_map`字典中。最后去重结果并返回。
 
 ### 链表 - Linked List
 
