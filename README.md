@@ -181,7 +181,12 @@
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/257.%20Binary%20Tree%20Paths/solution.py)
     初始化临时路径`path`与结果路径集合`paths`，先根遍历二叉树，遍历的过程中，每访问一个节点，如果该节点为空，则返回，否则将其添加到临时路径`path`中，并检查该节点是否有左右孩子节点，如果没有，则执行一次`path`临时路径到结果路径的序列化，结果添加到`paths`中。如果有左右孩子节点，则继续对该节点的左右孩子进行先根遍历。如果访问到叶子节点，则对`path`执行`pop`操作，将该节点出栈。最后返回结果路径集合`paths`。
     
-#### 
+#### 695. Max Area of Island
+- ##### [描述](https://leetcode.com/problems/max-area-of-island/description/)
+    给定一个二维数组`grid`，其元素为`0`或`1`，找到最大的“孤岛”，并返回其大小。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/695.%20Max%20Area%20of%20Island/solution.py)
+    维护`result`变量记录结果，维护一个二维数组`visited`，`vistied[i][j]`描述了`grid[i][j]`是否已经被访问过，然后对以`i, j`为下标进入循环，对`grid[i][j]`进行深度优先遍历。在深度优先遍历时，维护一个`res = 1`变量，如果`grid[i][j] == 0`，则返回`0`，如果`grid[i][j] == 1`，才能继续遍历，同时，将`visited[i][j] = 1`，并将`res += 1`，然后进行方向为上、下、左、右的深度优先遍历。如果`res > result`，则更新`result = res`，最后返回`result`作为结果。
 
 ### 回溯 - Backtracking
 
@@ -302,3 +307,8 @@
 
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Dynamic%20Programming/120.%20Triangle/solution.py)
     初始化`dp = [0] * (len(triangle) + 1)`，`dp[i]`表示“自底向上”选择数字时，第`i`行为止最小的和。则以`i`为下标，倒序遍历`triangle`的每一行，以`j`为下标遍历`triangle[i]`每一个元素，可以写出递推式：`dp[j] = traiangle[i][j] + min(dp[j], dp[j + 1])`，最后返回`dp[0]`作为结果。
+
+#### 
+- ##### [描述]()
+
+- ##### [题解]()
