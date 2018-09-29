@@ -180,6 +180,8 @@
 
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/257.%20Binary%20Tree%20Paths/solution.py)
     初始化临时路径`path`与结果路径集合`paths`，先根遍历二叉树，遍历的过程中，每访问一个节点，如果该节点为空，则返回，否则将其添加到临时路径`path`中，并检查该节点是否有左右孩子节点，如果没有，则执行一次`path`临时路径到结果路径的序列化，结果添加到`paths`中。如果有左右孩子节点，则继续对该节点的左右孩子进行先根遍历。如果访问到叶子节点，则对`path`执行`pop`操作，将该节点出栈。最后返回结果路径集合`paths`。
+    
+#### 
 
 ### 回溯 - Backtracking
 
