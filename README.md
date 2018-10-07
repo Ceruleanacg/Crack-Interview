@@ -196,8 +196,9 @@
     
 #### 547. Friend Circles
 - ##### [描述](https://leetcode.com/problems/friend-circles/description/)
+    给定一个二维数组`M`，其元素为`0`或`1`，第`i`行第`j`列表示第`i`个人第与`j`个人是直接朋友关系，但是如果`M[j][k] == 1`，则第`i`个人与第`k`个人是间接朋友关系。
 
-- ##### [题解]()
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/547.%20Friend%20Circles/solution.py)
 
 ### 回溯 - Backtracking
 
