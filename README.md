@@ -193,6 +193,11 @@
 
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/695.%20Max%20Area%20of%20Island/solution.py)
     维护`result`变量记录结果，维护一个二维数组`visited`，`vistied[i][j]`描述了`grid[i][j]`是否已经被访问过，然后对以`i, j`为下标进入循环，对`grid[i][j]`进行深度优先遍历。在深度优先遍历时，维护一个`res = 1`变量，如果`grid[i][j] == 0`，则返回`0`，如果`grid[i][j] == 1`，才能继续遍历，同时，将`visited[i][j] = 1`，并将`res += 1`，然后进行方向为上、下、左、右的深度优先遍历。如果`res > result`，则更新`result = res`，最后返回`result`作为结果。
+    
+#### 547. Friend Circles
+- ##### [描述](https://leetcode.com/problems/friend-circles/description/)
+
+- ##### [题解]()
 
 ### 回溯 - Backtracking
 
