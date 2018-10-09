@@ -71,6 +71,13 @@
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Array%20and%20Strings/15.%203Sum/solution.py)
     首先，3个数字`a, b, c`的和为`0`，即`a + b = c`，则将问题转化为了一个`Two Sum`问题，所以，我们先排序数组`nums`，并初始化`targets`数组：`[-num for num in nums]`。以下标`i`进入循环，初始化`y_map`与`target = targets[i]`，`y_map`用来记录是否`y`已经查找过。然后遍历`nums[i + 1:]`的每一个元素`x`，将`target - x`记作`y`，如果`y`在`y_map`中，则添加结果`-target, x, y`作为一个解。否则，`y_map[x] = x`，记录当前`x`到`y_map`字典中。最后去重结果并返回。
 
+#### 48. Rotate Image 
+- ##### [描述](https://leetcode.com/problems/rotate-image/description/)
+    给定一个二维数组`matrix`，将它顺时针旋转90°，不可以申请新空间。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Array%20and%20Strings/48.%20Rotate%20Image/solution.py)
+    首先，将`matrix`转置，以`i, j`为行列，进入循环，即对于每一个元素`matrix[i][j] = matrix[j][i]`，需注意，此处`j`从`i`开始，因为只需遍历`matrix`的上三角矩阵即可。然后，再将转置的矩阵`martix`水平翻转，即以`i, j`为行列进入循环，使得`matrix[i][j] = matrix[i][num_col - j - 1]`，需要注意，`j`的上界是`num_col // 2`，因为`num_col // 2`为轴心。
+
 ### 链表 - Linked List
 
 #### 206. Reverse Linked List
@@ -196,10 +203,11 @@
     
 #### 547. Friend Circles
 - ##### [描述](https://leetcode.com/problems/friend-circles/description/)
-    给定一个二维数组`M`，其元素为`0`或`1`，第`i`行第`j`列表示第`i`个人第与`j`个人是直接朋友关系，但是如果`M[j][k] == 1`，则第`i`个人与第`k`个人是间接朋友关系。
+    给定一个二维数组`M`，其中元素为`0`或`1`，表示第`j`个人是否是第`i`个人的直接朋友。如果`k`是`j`的朋友，`j`是`i`的朋友，则`i`与`k`是间接朋友，它们形成了一个“朋友圈”，求`M`中朋友圈的个数。
 
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/547.%20Friend%20Circles/solution.py)
-
+    维护一个`visited`数组，表示是否已经检查过第`i`个人的朋友圈。然后以`i`为第`i`个人的下标，进入循环，如果`visited[i] == 1`，即已经检查过该人的朋友圈，则`continue`，否则，首先将`visited[i] = 1`，然后初始化栈`stack = [i]`，准备深度优先遍历：当栈`stack`不为空，则栈尾出栈记作`j`，则以`k`为第`k`个人的下标，进入循环，如果`visited[k] == 0`且`M[j][k] == 1`，即第`k`个人的朋友圈尚未检查，而且`j`与`k`互为朋友，则将`k`入栈。当以`i`为下标的外部循环结束，则将`res += 1`，结果自增。最后返回`res`作为结果。
+    
 ### 回溯 - Backtracking
 
 #### 17. Letter Combinations of a Phone Number
