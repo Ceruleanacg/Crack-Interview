@@ -78,6 +78,20 @@
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Array%20and%20Strings/48.%20Rotate%20Image/solution.py)
     首先，将`matrix`转置，以`i, j`为行列，进入循环，即对于每一个元素`matrix[i][j] = matrix[j][i]`，需注意，此处`j`从`i`开始，因为只需遍历`matrix`的上三角矩阵即可。然后，再将转置的矩阵`martix`水平翻转，即以`i, j`为行列进入循环，使得`matrix[i][j] = matrix[i][num_col - j - 1]`，需要注意，`j`的上界是`num_col // 2`，因为`num_col // 2`为轴心。
 
+#### 66. Plus One
+- ##### [描述](https://leetcode.com/problems/plus-one/description/)
+    给定一个数组`nums`，如`[1, 2, 3]`，代表了`123`的各位，现在对个位加一，返回结果数组，如`[1, 2, 4]`。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Array%20and%20Strings/66.%20Plus%20One/solution.py)
+    初始化`carry`进位标识符，首先对个位加一，如果结果大于`10`，则模`10`后标记`carry = 1`，然后遍历剩余的位数加`carry`，同时判断是否进位，直到遍历结束。如果遍历结束后`carry = 1`，则插入`1`到数组下标为`0`处。
+
+#### 189. Rotate Array
+- ##### [描述](https://leetcode.com/problems/rotate-array/description/)
+    给定一个数组`nums`，与一个整数`k`，代表将前`k`位数移至数组末尾，就地修改数组`nums`。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Array%20and%20Strings/189.%20Rotate%20Array/solution.py)
+    以下标`i`进入循环，循环执行`k`次，每次`nums.insert(nums.pop(0)`即可。
+
 ### 链表 - Linked List
 
 #### 206. Reverse Linked List
@@ -207,6 +221,13 @@
 
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/547.%20Friend%20Circles/solution.py)
     维护一个`visited`数组，表示是否已经检查过第`i`个人的朋友圈。然后以`i`为第`i`个人的下标，进入循环，如果`visited[i] == 1`，即已经检查过该人的朋友圈，则`continue`，否则，首先将`visited[i] = 1`，然后初始化栈`stack = [i]`，准备深度优先遍历：当栈`stack`不为空，则栈尾出栈记作`j`，则以`k`为第`k`个人的下标，进入循环，如果`visited[k] == 0`且`M[j][k] == 1`，即第`k`个人的朋友圈尚未检查，而且`j`与`k`互为朋友，则将`k`入栈。当以`i`为下标的外部循环结束，则将`res += 1`，结果自增。最后返回`res`作为结果。
+
+#### 104. Maximum Depth of Binary Tree
+- ##### [描述](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/)
+    给定一颗二叉树，输出二叉树的深度。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Trees%20and%20Graphs/104.%20Maximum%20Depth%20of%20Binary%20Tree/solution.py)
+    略，参考层序遍历二叉树，遍历时记录深度即可。
     
 ### 回溯 - Backtracking
 
@@ -267,6 +288,13 @@
     
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Sorting%20and%20Searching/240.%20Search%20a%202D%20Matrix%20II/solution.py)
     初始化`peak_j = 0`，以`nums[j][0] <= target`为条件，遍历`nums`每行的第一个元素，记录`peak_j = j`，以下标`i`遍历`0`行到`j`行，在区间行`nums[i][:]`进行二分查找，后返回结果。
+
+#### 252. Meeting Rooms
+- ##### [描述](https://leetcode.com/problems/meeting-rooms/description/)
+    给定一个数组，数组内的元素是一个整型二元组，表示会议的开始和结束时间，如果会议时间有冲突，判断会议之间是否有冲突。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Sorting%20and%20Searching/33.%20Search%20in%20Rotated%20Sorted%20Array/solution.py)
+    将该数组按开始时间排序后结果记为`intervals`，然后以`i`为下标遍历数组，如果`intervals[i].start < intervals[i-1].end`，则有冲突，返回`False`，否则继续循环直到结束，返回`True`，即没有冲突。
 
 
 ### 动态规划 - Dynamic Programming
