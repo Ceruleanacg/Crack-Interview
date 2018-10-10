@@ -11,3 +11,11 @@ class Solution:
         :type intervals: List[Interval]
         :rtype: bool
         """
+        if not intervals:
+            return True
+
+        intervals_sorted = sorted(intervals, key=lambda x: x.start)
+        for i in range(1, len(intervals_sorted)):
+            if intervals_sorted[i].start < intervals_sorted[i - 1].end:
+                return False
+        return True
