@@ -291,11 +291,17 @@
 
 #### 252. Meeting Rooms
 - ##### [描述](https://leetcode.com/problems/meeting-rooms/description/)
-    给定一个数组，数组内的元素是一个整型二元组，表示会议的开始和结束时间，如果会议时间有冲突，判断会议之间是否有冲突。
+    给定一个数组`intervals`，数组内的元素是一个整型二元组，表示了会议的开始和结束时间，如果会议时间有冲突，判断会议之间是否有冲突。
 
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Sorting%20and%20Searching/33.%20Search%20in%20Rotated%20Sorted%20Array/solution.py)
     将该数组按开始时间排序后结果记为`intervals`，然后以`i`为下标遍历数组，如果`intervals[i].start < intervals[i-1].end`，则有冲突，返回`False`，否则继续循环直到结束，返回`True`，即没有冲突。
 
+#### 253. Meeting Rooms II
+- ##### [描述](https://leetcode.com/problems/meeting-rooms-ii/description/)
+    给定一个数组`intervals`，数组内的元素是一个整型的二元组，表示了会议的开始和结束时间，因为会议时间有可能冲突，返回最多需要的会议室数量。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Sorting%20and%20Searching/253.%20Meeting%20Rooms%20II/solution.py)
+    维护一个字典`interval_rooms_map`，它的键是会议开始或结束时间，它的值时此刻会议室的“名义数量”，然后遍历`intervals`，对`interval_rooms_map[interval.start] += 1`，对`interval_rooms_map[interval.end] -= 1`，表示每个会议`interval`的起始时间对会议室的“名义数量”，即如果会议开始，那么占用数需要自增，如果结束，那么占用数自减。然后，获取该字典的所有键并升序排序，其结果记为`keys_sorted`。然后，初始化`max_room = 0, cur_room = 0`，代表最大会议室数量和当前会议室数量，通过`key_sorted`的`key`遍历`interval_rooms_map`的值，并使得`cur_room += interval_rooms_map[key]`，同时更新最大会议室数量`max_room = max(max_room, cur_room)`，最后返回`max_room`。
 
 ### 动态规划 - Dynamic Programming
 
