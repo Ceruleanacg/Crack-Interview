@@ -26,14 +26,14 @@
 - ##### [描述](https://leetcode.com/problems/string-to-integer-atoi)
     给定一个字符串，字符串可能包含非数字字符，例如字母和符号。如果以负号以外的非数字开头，则返回`0`，否则将字符串数字，含符号，转化为32位整型。
 
-- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/tree/master/LeetCode/Array%20and%20Strings/8.%20String%20to%20Integer%20(atoi))
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/tree/master/LeetCode/Array%20and%20Strings/8.%20String%20to%20Integer%20(atoi)/solution.py)
     略。
 
 #### 344. Reverse String   
 - ##### [描述](https://leetcode.com/problems/reverse-string/description/)   
     给定一个字符串，将字符串逆置。  
 
-- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/tree/master/LeetCode/Array%20and%20Strings/344.%20Reverse%20String)
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/tree/master/LeetCode/Array%20and%20Strings/344.%20Reverse%20String/solution.py)
     同时从字符串的正序、逆序遍历字符串，交换两个字符的位置，直到两下标相等。  
 
 #### 20. Valid Parentheses
@@ -48,7 +48,7 @@
     给定一个字符串，返回这个字符串的最大回文子串。
 
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Array%20and%20Strings/5.%20Longest%20Palindromic%20Substring/solution.py)
-    由于枚举所有长度的子串，并判断该子串是否是回文子串的复杂度（`O(n * m * m)`）过高，故考虑动态规划。在外层循环以下标`j`遍历字符串下标，`j`代表了子串的右界（`0 <= j <= len(s)`），内层循环以下标`i`遍历子串下标（`0 <= i <= j`），易知，当`j=i`时，原字符串`s`的子串`sub_s`，即`s[i:j+1]`是回文的，而当`j-i=1`时，如果`s[i]=s[j]`则子串`sub_s`是回文的，而当`j-i>1`时，子串`sub_s`是否回文，取决于是否`s[i]=s[j]`且`s[i+1:j-1]`是否为真，如果为真，则`sub_s`回文。所以，我们维护一个`dp`二维数组，其下标`i,j`表示原字符串从下标`i`开始到`j`结束（包含`j`）的子串是否为回文子串。在遍历过程中不断更新最长的下标`i, j`最后返回最长回文子串。
+    由于枚举所有长度的子串，并判断该子串是否是回文子串的复杂度（`O(n * m * m)`）过高，故考虑动态规划。在外层循环以下标`j`遍历字符串下标，`j`代表了子串的右界（`0 <= j <= len(s)`），内层循环以下标`i`遍历子串下标（`0 <= i <= j`），易知，当`j=i`时，原字符串`s`的子串`sub_s`，即`s[i:j+1]`是回文的，而当`j-i=1`时，如果`s[i]=s[j]`则子串`sub_s`，是回文的，而当`j-i>1`时，子串`sub_s`是否回文，取决于是否`s[i]=s[j]`且`s[i+1:j-1]`是否为真，如果为真，则`sub_s`回文。所以，我们维护一个`dp`二维数组，其下标`i,j`表示原字符串从下标`i`开始到`j`结束（包含`j`）的子串是否为回文子串。在便利过程中不断更新最长的下标`i, j`最后返回最长回文子串。
 
 #### 49. Group Anagrams
 - ##### [描述](https://leetcode.com/problems/group-anagrams/description/)
@@ -237,6 +237,13 @@
 
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Backtracking/17.%20Letter%20Combinations%20of%20a%20Phone%20Number/solution.py)
     初始化结果数组`result`，对给定数字字符串`s`以及每个字符所能对应的字母，进行深度优先遍历。即，遍历数字字符串`s`，对每一个下标`i`，与其对应的数字`num`，查询它可能的组成字母，依次递归调用深度优先遍历函数。深度优先遍历函数有四个参数，分别是当前下标`i`，数字字符串`s`，当前组合`pattern`，结果数组`result`，直到当前下标`i == len(s)`时，将`pattern`添加到`result`中，并返回结果数组。
+
+#### 39. Combination Sum
+- ##### [描述](https://leetcode.com/problems/combination-sum/description/)
+    给定一个整形数组，所有元素均为正数，记作`candiates`，给定一个目标数记作`target`，在`candiates`找到所有整数的组合，使他们的和等于`target`，每个元素可以使用多次。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Backtracking/39.%20Combination%20Sum/solution.py)
+    首先排序`candidates`，然后设计深度优先遍历函数`dfs(candidates, target, last_num, result, results)`。即，`target == 0`，则添加`result`到结果数组`results`，如果`target < candidates[0]`，则返回。然后遍历`candidate`的每一个数字记作`num`，对每一个`num`，如果它大于`target`，则返回。如果它小于`last_num`，则`continue`，因为这个数字应该已经被遍历过了。否则，将`num`添加到临时`result`，然后递归调用`dfs(candidates, target - num, num, result, results)`，最后通过`result.pop()`当前`num`，全部结束后返回`results`。
 
 ### 排序和搜索 - Sorting and Searching
 
