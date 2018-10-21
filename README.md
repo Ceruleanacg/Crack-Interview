@@ -12,7 +12,6 @@
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Array%20and%20Strings/1.%20Two%20Sum/solution.py)
     初始化字典`dic`，其键值为数组中某元素与其下标，遍历数组中每个元素`arr[i]`，目标值`target`与`arr[i]`的差记为`diff`，在`dic`中查找键`diff`，如果存在，则返回`diff`的下标与`i`，如果不存在，为`dic`建立`arr[i]`与`i`的键值对。
 
-
 #### 125. Valid Palindrome
 
 - ##### [描述](https://leetcode.com/problems/valid-palindrome/)
@@ -92,6 +91,19 @@
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Array%20and%20Strings/189.%20Rotate%20Array/solution.py)
     以下标`i`进入循环，循环执行`k`次，每次`nums.insert(nums.pop(0)`即可。
 
+#### 215. Kth Largest Element in an Array
+- ##### [描述](https://leetcode.com/problems/kth-largest-element-in-an-array/description/)
+    给定一个数组记为`nums`，返回第`k`大的元素。    
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Array%20and%20Strings/215.%20Kth%20Largest%20Element%20in%20an%20Array/solution.py)
+    首先通过`heapq.heapify(nums)`建堆，然后通过`heapq.nlargest(k, nums)[-1]`返回结果即可。
+
+#### 76. Minimum Window Substring
+- ##### [描述](https://leetcode.com/problems/minimum-window-substring/description/)
+    给定原始字符串`s`与目标字符串`t`，返回一个最小窗口字符串`sub_s`，该窗口字符串是最小的字符串包含了目标字符串`t`所有字符。    
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Array%20and%20Strings/76.%20Minimum%20Window%20Substring/solution.py)
+    首先初始化两个字典记作`start_dic`和`end_dic`，它们的键值分别为字符和出现的次数，然后遍历`t`中的每一个字符，更新这两个字典。然后计算`t`的长度记为`t_length`。初始化下标`start = 0`，然后以`end = 0`为下标遍历`s`，`end`表示`s`的右边界，如果`s[end]`在`end_dic`中，而且`end_dic[s[end]] > 0`，则将`start_dic[s[end]]`自减，同时，如果`start_dic[s[end]] >= 0`，则将`t_length`自减，如果`t_length == 0`，则进入以下循环：如果`s[start]`在`end_dic`中，而且`end_dic[s[start]] > 0`，如果`start_dic[s[start]] < 0`则`start_dic[s[start]]`自增，否则`break`，`start += 1`，然后根据当前最小窗口大小`min_size`是否大于`end - start + 1`来更新最小窗口大小`min_size`，和结果起始下标`min_start`。最终，如果`min_size < len(s) + 1`，则返回`s[min_start: min_start + min_size]`，否则返回空串。
 ### 链表 - Linked List
 
 #### 206. Reverse Linked List
@@ -135,14 +147,14 @@
 - ##### [描述](https://leetcode.com/problems/validate-binary-search-tree/description/)
     给定一个树，判断该二叉树是否是二叉查找树
 
-- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/tree/master/LeetCode/Trees%20and%20Graphs/98.%20Validate%20Binary%20Search%20Tree)
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/tree/master/LeetCode/Trees%20and%20Graphs/98.%20Validate%20Binary%20Search%20Tree/solution.py)
     将中根遍历该二叉树的结果保存，检查该数组是否有序，如果有序，则是二叉查找树。
     
 #### 94. Binary Tree Inorder Traversal
 - ##### [描述](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
     给定一颗二叉树，输出中根遍历结果。
 
-- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/tree/master/LeetCode/Trees%20and%20Graphs/94.%20Binary%20Tree%20Inorder%20Traversal)
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/tree/master/LeetCode/Trees%20and%20Graphs/94.%20Binary%20Tree%20Inorder%20Traversal/solution.py)
     初始化栈`stack`，将元组`(root, False)`入栈，以栈不为空进入循环，将栈顶元组出栈，结果记为`cur_node, visited`，如果`cur_node`为真时，`visited`为真，即已经访问了该节点，则将该节点的值`cur_node.val`添加到结果数组，如果`visited`为假，即尚未访问该节点，则依次将该节点的右节点，该节点，该节点的左节点入栈，他们的访问标记分别为`False, True, False`，然后继续循环。最后打印结果。
 
 #### 102. Binary Tree Level Order Traversal
