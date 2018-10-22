@@ -322,6 +322,13 @@
 - ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Sorting%20and%20Searching/253.%20Meeting%20Rooms%20II/solution.py)
     维护一个字典`interval_rooms_map`，它的键是会议开始或结束时间，它的值时此刻会议室的“名义数量”，然后遍历`intervals`，对`interval_rooms_map[interval.start] += 1`，对`interval_rooms_map[interval.end] -= 1`，表示每个会议`interval`的起始时间对会议室的“名义数量”，即如果会议开始，那么占用数需要自增，如果结束，那么占用数自减。然后，获取该字典的所有键并升序排序，其结果记为`keys_sorted`。然后，初始化`max_room = 0, cur_room = 0`，代表最大会议室数量和当前会议室数量，通过`key_sorted`的`key`遍历`interval_rooms_map`的值，并使得`cur_room += interval_rooms_map[key]`，同时更新最大会议室数量`max_room = max(max_room, cur_room)`，最后返回`max_room`。
 
+#### 56. Merge Intervals
+- ##### [描述](https://leetcode.com/problems/merge-intervals/description/)
+    给定一个数组`intervals`，数组内的元素是一个整型的二元组，表示了开始和结束时间，由于时间可能重叠，返回合并后的`intervals`数组，例如：`[[1, 3], [2, 6], [8, 10]]`合并后应该为`[[1, 6], [8, 10]`。
+
+- ##### [题解](https://github.com/Ceruleanacg/Crack-Interview/blob/master/LeetCode/Sorting%20and%20Searching/56.%20Merge%20Intervals/solution.py)
+    首先以`interval.start`排序`intervals`数组，然后初始化结果数组`results = [intervals[0]]`，从下标为1开始遍历排序后的`intervals`数组，如果`interval.start <= results[-1].end`，即说明出现重叠，则`results[-1].end = max(interval.end, results[-1].end)`。否则，添加新合并区间`results.append(interval)`，最后返回结果。 
+
 ### 动态规划 - Dynamic Programming
 
 #### 121. Best Time to Buy and Sell Stock
